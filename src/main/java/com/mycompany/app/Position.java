@@ -2,11 +2,11 @@ package com.mycompany.app;
 
 public class Position {
 
-    public String x;
+    public int x;
 
     public int y;
 
-    public Position(String x, int y) {
+    public Position(int x, int y) {
         this.x = x;
         this.y = y;
     }

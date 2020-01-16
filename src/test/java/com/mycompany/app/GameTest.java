@@ -11,7 +11,7 @@ public class GameTest {
     @Test
     public void testGameInitialization() {
         Game game = new Game();
-        game.init();
+
         Player player1 = game.getPlayer1();
         Player player2 = game.getPlayer2();
         Board board = game.getBoard();

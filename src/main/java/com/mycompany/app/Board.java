@@ -5,62 +5,63 @@ import java.util.HashMap;
 
 public class Board {
 
-    public static final String a = "a";
-    public static final String b = "b";
-    public static final String c = "c";
-    public static final String d = "d";
-    public static final String e = "e";
-    public static final String f = "f";
-    public static final String g = "g";
-    public static final String h = "h";
-    
     public HashMap<Position, Piece> squares;
 
-    public void init() {
+    public Board() {
+        this.squares = new HashMap<Position, Piece>();
+        this.initSquares(); 
+        this.setPieces();
+    }
 
-        squares = new HashMap<Position, Piece>();
-        String[] horizontalIdentifiers = {a, b, c, d, e, f, g, h};
-        int[] verticalIdentifiers = {1, 2, 3, 4, 5, 6, 7, 8};
-
-        for (int y : verticalIdentifiers){
-            for (String x : horizontalIdentifiers) {
-                squares.put(new Position(x, y), null);
+    private void initSquares() {
+        for(int y = 0; y <= 8; y++) {
+            for(int x = 0; x <= 8; x++) {
+                this.squares.put(new Position(x, y), null);
             }
         }
+    }
 
-        squares.put(new Position(a ,1), new Rook(Game.white));
-        squares.put(new Position(b ,1), new Knight(Game.white));
-        squares.put(new Position(c ,1), new Bishop(Game.white));
-        squares.put(new Position(d ,1), new Queen(Game.white));
-        squares.put(new Position(e ,1), new King(Game.white));
-        squares.put(new Position(f ,1), new Bishop(Game.white));
-        squares.put(new Position(g ,1), new Knight(Game.white));
-        squares.put(new Position(h ,1), new Rook(Game.white));
-        squares.put(new Position(a ,2), new Pawn(Game.white));
-        squares.put(new Position(b ,2), new Pawn(Game.white));
-        squares.put(new Position(c ,2), new Pawn(Game.white));
-        squares.put(new Position(d ,2), new Pawn(Game.white));
-        squares.put(new Position(e ,2), new Pawn(Game.white));
-        squares.put(new Position(f ,2), new Pawn(Game.white));
-        squares.put(new Position(g ,2), new Pawn(Game.white));
-        squares.put(new Position(h ,2), new Pawn(Game.white));
+    public void setPieces() {
+        this.setWhitePieces();
+        this.setBlackPieces();
+    }
 
-        squares.put(new Position(a ,7), new Pawn(Game.black));
-        squares.put(new Position(b ,7), new Pawn(Game.black));
-        squares.put(new Position(c ,7), new Pawn(Game.black));
-        squares.put(new Position(d ,7), new Pawn(Game.black));
-        squares.put(new Position(e ,7), new Pawn(Game.black));
-        squares.put(new Position(f ,7), new Pawn(Game.black));
-        squares.put(new Position(g ,7), new Pawn(Game.black));
-        squares.put(new Position(h ,7), new Pawn(Game.black));
-        squares.put(new Position(a ,8), new Rook(Game.black));
-        squares.put(new Position(b ,8), new Knight(Game.black));
-        squares.put(new Position(c ,8), new Bishop(Game.black));
-        squares.put(new Position(d ,8), new Queen(Game.black));
-        squares.put(new Position(e ,8), new King(Game.black));
-        squares.put(new Position(f ,8), new Bishop(Game.black));
-        squares.put(new Position(g ,8), new Knight(Game.black));
-        squares.put(new Position(h ,8), new Rook(Game.black));
+    private void setWhitePieces() {
+        this.squares.put(new Position(1 ,1), new Rook(Game.white));
+        this.squares.put(new Position(2 ,1), new Knight(Game.white));
+        this.squares.put(new Position(3 ,1), new Bishop(Game.white));
+        this.squares.put(new Position(4 ,1), new Queen(Game.white));
+        this.squares.put(new Position(5 ,1), new King(Game.white));
+        this.squares.put(new Position(6 ,1), new Bishop(Game.white));
+        this.squares.put(new Position(7 ,1), new Knight(Game.white));
+        this.squares.put(new Position(8 ,1), new Rook(Game.white));
+        this.squares.put(new Position(1 ,2), new Pawn(Game.white));
+        this.squares.put(new Position(2 ,2), new Pawn(Game.white));
+        this.squares.put(new Position(3 ,2), new Pawn(Game.white));
+        this.squares.put(new Position(4 ,2), new Pawn(Game.white));
+        this.squares.put(new Position(5 ,2), new Pawn(Game.white));
+        this.squares.put(new Position(6 ,2), new Pawn(Game.white));
+        this.squares.put(new Position(7 ,2), new Pawn(Game.white));
+        this.squares.put(new Position(8 ,2), new Pawn(Game.white));
+    }
+
+    private void setBlackPieces() {
+        this.squares.put(new Position(1 ,7), new Pawn(Game.black));
+        this.squares.put(new Position(2 ,7), new Pawn(Game.black));
+        this.squares.put(new Position(3 ,7), new Pawn(Game.black));
+        this.squares.put(new Position(4 ,7), new Pawn(Game.black));
+        this.squares.put(new Position(5 ,7), new Pawn(Game.black));
+        this.squares.put(new Position(6 ,7), new Pawn(Game.black));
+        this.squares.put(new Position(7 ,7), new Pawn(Game.black));
+        this.squares.put(new Position(8 ,7), new Pawn(Game.black));
+        this.squares.put(new Position(1 ,8), new Rook(Game.black));
+        this.squares.put(new Position(2 ,8), new Knight(Game.black));
+        this.squares.put(new Position(3 ,8), new Bishop(Game.black));
+        this.squares.put(new Position(4 ,8), new Queen(Game.black));
+        this.squares.put(new Position(5 ,8), new King(Game.black));
+        this.squares.put(new Position(6 ,8), new Bishop(Game.black));
+        this.squares.put(new Position(7 ,8), new Knight(Game.black));
+        this.squares.put(new Position(8 ,8), new Rook(Game.black));
     }
 
     public HashMap<Position, Piece> getSquares() {
