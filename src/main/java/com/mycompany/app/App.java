@@ -1,14 +1,13 @@
 package com.mycompany.app;
 
-/**
- * Hello world!
- *
- */
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
+        Game game = new Game();
 
-        System.out.println( "Hello World!" );
+        game.getBoard().getSquares().forEach(
+                (position, piece) -> System.out.println(position + " " + piece)
+        );
     }
 }
